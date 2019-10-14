@@ -9,3 +9,10 @@ docker exec -t CONTAINER_NAME mysqldump -u root -p MYSQL_ROOT_PASSWORD DATABASE_
 
 # Restore
 cat backup.sql | docker exec -i CONTAINER /usr/bin/mysql -u root -p MYSQL_ROOT_PASSWORD DATABASE_NAME
+
+# create user
+CREATE USER 'user'@'%' IDENTIFIED BY '';
+GRANT ALL PRIVILEGES ON *.* TO 'user'@'%';
+
+# create database
+CREATE SCHEMA `my_db` DEFAULT CHARACTER SET utf8mb4 ;
