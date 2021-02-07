@@ -1,4 +1,11 @@
 # mariadb
+set enviroment variable
+```
+export MARIADB=/srv/mariadb
+```
+and add previous line to .bashrc file
+
+
 custom mariadb version 10.4.7
 
 # run 
@@ -9,3 +16,5 @@ docker exec -t CONTAINER_NAME mysqldump -u root -p MYSQL_ROOT_PASSWORD DATABASE_
 
 # Restore
 cat backup.sql | docker exec -i CONTAINER /usr/bin/mysql -u root -p MYSQL_ROOT_PASSWORD DATABASE_NAME
+
+# Docker compose docker-compose.yml
