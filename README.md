@@ -18,3 +18,23 @@ docker exec -t CONTAINER_NAME mysqldump -u root -p MYSQL_ROOT_PASSWORD DATABASE_
 cat backup.sql | docker exec -i CONTAINER /usr/bin/mysql -u root -p MYSQL_ROOT_PASSWORD DATABASE_NAME
 
 # Docker compose docker-compose.yml
+```
+version: '3.3'
+services:
+    mariadb:
+        container_name: mariadb
+        restart: always
+        volumes:
+            - '$MARIADB_HOME/data:/var/lib/mysql'
+#            - '$MARIADB_HOME/mysql:/etc/mysql'
+        environment:
+            - MYSQL_ROOT_PASSWORD=1
+        ports:
+            - '3306:3306'
+        image: 'ledangtuanbk/mariadb:10.4.7'
+```
+
+# .env
+```
+MARIADB_HOME=/srv/mariadb
+```
