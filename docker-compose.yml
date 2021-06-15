@@ -1,0 +1,14 @@
+version: '3.3'
+services:
+    mariadb:
+        container_name: mariadb
+        restart: always
+        volumes:
+            - '$MARIADB_HOME/config/ldt.cnf:/etc/mysql/mariadb.conf.d/ldt.cnf'
+            - '$MARIADB_HOME/data:/var/lib/mysql'
+#            - '$MARIADB_HOME/logs:/var/log/mysql'
+        environment:
+            - MYSQL_ROOT_PASSWORD=1
+        ports:
+            - '3306:3306'
+        image: 'ledangtuanbk/mariadb:10.2'
